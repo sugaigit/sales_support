@@ -15,6 +15,14 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# フォルダのディレクトリ設定
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# テンプレート(HTML)
+TEMPLATE_DIR = os.path.join(BASE_DIR,"Template")
+# static(CSS)
+STATIC_DIR = os.path.join(BASE_DIR,"static")
+# 画像
+MEDIA_DIR = os.path.join(BASE_DIR, "media")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -38,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'inputform.apps.InputformConfig',
+    'loginapp.apps.LoginappConfig',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +64,7 @@ ROOT_URLCONF = 'sales_support.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR,],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -90,6 +99,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS':{"min_length":6},
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -117,7 +127,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+# Static files
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [STATIC_DIR,]
+
+#MEDIA_DIR
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = "/media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
