@@ -4,10 +4,13 @@
     <title>営業支援システム</title>
   </head>
   <body>
+    <p> ログアウトは
+      <a href="{% url 'Login' %}">こちらから！！</a>
+      </p>
 <center>
-    <h1>入力フォーム</h1><hr><br>
+    <h1>新規クライアント担当者</h1><hr><br>
 
-    <form action="{% url 'inputform:input_form' %}" method="post">
+    <form action="{% url 'inputform:client' %}" method="post">
         {% csrf_token %}
         <table>
             {{ form.as_table }}
