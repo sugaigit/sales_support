@@ -57,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'global_login_required.GlobalLoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'sales_support.urls'
@@ -108,7 +109,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+# PUBLIC_PATHS = [
+# 	'//',  # ディレクトリごと除外することも可能
+# ]
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
